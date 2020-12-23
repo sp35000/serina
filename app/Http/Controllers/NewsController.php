@@ -14,10 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::latest()->paginate(5);
-
-        return view('news.index', compact('news'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('News.index');
     }
 
     /**
@@ -27,7 +24,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create');
+        return view('News.create');
     }
 
     /**
@@ -38,69 +35,58 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required'
-        ]);
-
-        News::create($request->all());
-
-        return redirect()->route('news.index')
-            ->with('success', 'News created successfully.');
+        //dd($request->all());
+        News::create([
+            'title' => $request->title,
+            'category' => $request->category,
+            'link' => $request->link,
+            'hashtag' => $request->hashtag,
+            'media' => $request->media]);
+        return view('News.show');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\News  $new
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(News $new)
+    public function show(News $news)
     {
-        return view('news.show', compact('new'));
+        return view('News.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $new
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $new)
+    public function edit(News $news)
     {
-        return view('news.edit', compact('new'));
+        return view('News.edit');
     }
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\new  $new
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $new)
+    public function update(Request $request, News $news)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required'
-        ]);
-        $new->update($request->all());
-
-        return redirect()->route('news.index')
-            ->with('success', 'News updated successfully');
+        return view('News.show');
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\News  $new
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $new)
+    public function delete(News $news)
     {
-        $new->delete();
-
-        return redirect()->route('news.index')
-            ->with('success', 'News deleted successfully');
+        return view('News.show');
     }
 }

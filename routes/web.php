@@ -17,4 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('news', NewsController::class);
+Route::get('news/','App\Http\Controllers\NewsController@index');
+Route::get('news/create','App\Http\Controllers\NewsController@create');
+Route::post('news/create','App\Http\Controllers\NewsController@store');
+Route::get('news/edit','App\Http\Controllers\NewsController@edit');
+Route::post('news/update','App\Http\Controllers\NewsController@update');
+Route::get('news/show','App\Http\Controllers\NewsController@show');

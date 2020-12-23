@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
             $table->decimal('final_date', 11)->nullable()->default(0.00);
             $table->string('hashtag')->nullable();
             $table->string('media')->nullable();
+            $table->timestamps();
         });
     }
 
