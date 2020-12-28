@@ -61,9 +61,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Serina
-```
-curl -s https://laravel.build/example-app | bash
-cd serina && ./sail up
-```
+## Serina CRUD
 
+Reference:
+[Laravel 8 CRUD Tutorial by Example](https://www.techiediaries.com/laravel-8-crud-tutorial/)
+[How to Write Good Commit Messages: A Practical Git Guide](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
