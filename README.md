@@ -67,5 +67,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 [https://github.com/sp35000/serina](https://github.com/sp35000/serina)
 
 # Reference:
-[Laravel 8 CRUD Tutorial by Example](https://www.techiediaries.com/laravel-8-crud-tutorial/)
-[How to Write Good Commit Messages: A Practical Git Guide](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
+- [Laravel 8 CRUD Tutorial by Example](https://www.techiediaries.com/laravel-8-crud-tutorial/)
+- [How to Write Good Commit Messages: A Practical Git Guide](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
