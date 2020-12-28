@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
@@ -14,7 +15,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('News.index');
+        $news = DB::table('news')->get();
+        return view('News.index',['news' => $news]);
     }
 
     /**

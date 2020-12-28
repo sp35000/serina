@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+    protected $table = 'news';
+    public $timestamps = true;
     protected $fillable = ['title','category','link','hashtag','media'];
 }

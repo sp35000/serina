@@ -1,13 +1,13 @@
-@extends('Layouts.App')
+@extends('Layouts.app')
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Serina CRUD</h2>
+                <h2>Serina</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="" title="Add news"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="" title="Add News"> <i class="fas fa-plus-circle"></i>
                     </a>
             </div>
         </div>
@@ -21,14 +21,14 @@
 
     <table class="table table-bordered table-responsive-lg">
         <tr>
+            <th>No</th>
             <th>Title</th>
             <th>Category</th>
             <th>Link</th>
             <th>Hashtag</th>
             <th>Media</th>
-            <th>Actions</th>
         </tr>
-        @foreach ($news as $new)
+        @foreach ($news as $n)
             <tr>
                 <td></td>
                 <td></td>
