@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Product</h2>
+                <h2>Serina - Create</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="" title="Go back"> <i class="fas fa-backward "></i> </a>
@@ -32,11 +32,9 @@
                     <input type="text" name="title" class="form-control" placeholder="title">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="form-group">
                     <strong>Category:</strong>
-                    <textarea class="form-control" style="height:50px" name="category"
-                        placeholder="category"></textarea>
+                    <input type="text" name="category" class="form-control" placeholder="category">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Product</h2>
+                <h2>Serina - Update</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="" title="Go back"> <i class="fas fa-backward "></i> </a>
@@ -14,7 +14,7 @@
 
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Error!</strong>
+            <strong>Error!</strong> 
             <ul>
                 @foreach ($errors->all() as $error)
                     <li></li>
@@ -22,41 +22,37 @@
             </ul>
         </div>
     @endif
-
-    <form action="" method="POST">
+    <form action="" method="POST" >
         @csrf
-        @method('PUT')
-
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="title">
+                    <input type="text" name="title" class="form-control" placeholder="title" value={{ $news->title }}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="form-group">
                     <strong>Category:</strong>
-                    <textarea class="form-control" style="height:50px" name="category"
-                        placeholder="category"></textarea>
+                    <input type="text" name="category" class="form-control" placeholder="category" value={{ $news->category }}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Link:</strong>
-                    <input type="text" name="link" class="form-control" placeholder="link">
+                    <input type="text" name="link" class="form-control" placeholder="link" value={{ $news->link }}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Hashtag:</strong>
-                    <input type="text" name="hashtag" class="form-control" placeholder="hashtag">
+                    <input type="text" name="hashtag" class="form-control" placeholder="hashtag" value={{ $news->hashtag }}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Media:</strong>
-                    <input type="text" name="media" class="form-control" placeholder="media">
+                    <input type="text" name="media" class="form-control" placeholder="media" value={{ $news->media }}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

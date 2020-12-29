@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = DB::table('news')->get();
+        $news = News::all();
         return view('News.index',['news' => $news]);
     }
 
@@ -44,8 +44,8 @@ class NewsController extends Controller
             'link' => $request->link,
             'hashtag' => $request->hashtag,
             'media' => $request->media]);
-        return view('News.show');
-    }
+            return view('News.show', ['news' => $news]);
+        }
 
     /**
      * Display the specified resource.
@@ -53,9 +53,10 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show($id)
     {
-        return view('News.show');
+        $news = News::findOrFail($id);
+        return view('News.show', ['news' => $news]);
     }
 
     /**
@@ -64,9 +65,10 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        return view('News.edit');
+        $news = News::findOrFail($id);
+        return view('News.edit', ['news' => $news]);
     }
 
     /**
@@ -76,10 +78,17 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request)
     {
-        return view('News.show');
-    }
+        $news = News::findOrFail($request->id);
+        $news->update([
+            'title' => $request->title,
+            'category' => $request->category,
+            'link' => $request->link,
+            'hashtag' => $request->hashtag,
+            'media' => $request->media]);
+            return view('News.show', ['news' => $news]);
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -87,8 +96,9 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function delete(News $news)
+    public function delete($id)
     {
+        $news = News::findOrFail($request->id);
         return view('News.show');
     }
 }

@@ -1,4 +1,4 @@
-@extends('Layouts.app')
+@extends('Layouts.App')
 
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
                 <h2>Serina</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="" title="Add News"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="/news/create" title="Add News"> <i class="fas fa-plus-circle"></i>
                     </a>
             </div>
         </div>
@@ -21,21 +21,22 @@
 
     <table class="table table-bordered table-responsive-lg">
         <tr>
-            <th>No</th>
+            <th>id</th>
             <th>Title</th>
             <th>Category</th>
             <th>Link</th>
             <th>Hashtag</th>
             <th>Media</th>
         </tr>
-        @foreach ($news as $n)
+        @foreach ($news as $n) 
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
+            <td>{{ $n->id }} </td>
+            <td>{{ $n->title }} </td>
+            <td>{{ $n->category }} </td>
+            <td>{{ $n->link }} </td>
+            <td>{{ $n->hashtag }} </td>
+            <td>{{ $n->media }} </td>
+            <td>
                     <form action="" method="POST">
 
                         <a href="" title="show">
@@ -45,9 +46,10 @@
                         <a href="">
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
-
+<!--
                         @csrf
                         @method('DELETE')
+                        -->
 
                         <button type="submit" title="delete" style="border: none; background-color:transparent;">
                             <i class="fas fa-trash fa-lg text-danger"></i>
@@ -58,6 +60,5 @@
         @endforeach
     </table>
 
-    {!! $news->links() !!}
 
 @endsection
