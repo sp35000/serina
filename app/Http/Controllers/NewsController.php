@@ -44,7 +44,10 @@ class NewsController extends Controller
             'link' => $request->link,
             'hashtag' => $request->hashtag,
             'media' => $request->media]);
-            return view('News.show', ['news' => $news]);
+            //return view('News.show', ['news' => $news]);
+            $news = News::all();
+            return view('News.index',['news' => $news]);
+    
         }
 
     /**
@@ -56,7 +59,9 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::findOrFail($id);
-        return view('News.show', ['news' => $news]);
+        //return view('News.show', ['news' => $news]);
+        $news = News::all();
+        return view('News.index',['news' => $news]);
     }
 
     /**
@@ -87,7 +92,9 @@ class NewsController extends Controller
             'link' => $request->link,
             'hashtag' => $request->hashtag,
             'media' => $request->media]);
-            return view('News.show', ['news' => $news]);
+            //return view('News.show', ['news' => $news]);
+            $news = News::all();
+            return view('News.index',['news' => $news]);    
         }
 
     /**
@@ -96,9 +103,12 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy(Request $request)
     {
+        //dd($request->all());
         $news = News::findOrFail($request->id);
-        return view('News.show');
+        $news->delete();
+        $news = News::all();
+        return view('News.index',['news' => $news]);
     }
 }
