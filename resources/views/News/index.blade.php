@@ -22,6 +22,7 @@
 
     <table class="table table-bordered table-responsive-lg">
         <tr>
+            <th>operation</th>
             <th>id</th>
             <th>Title</th>
             <th>Category</th>
@@ -31,21 +32,15 @@
         </tr>
         @foreach ($news as $n) 
             <tr>
-            <td>{{ $n->id }} </td>
-            <td>{{ $n->title }} </td>
-            <td>{{ $n->category }} </td>
-            <td>{{ $n->link }} </td>
-            <td>{{ $n->hashtag }} </td>
-            <td>{{ $n->media }} </td>
             <td>
-                    <form action="delete" method="POST">
+                    <form action="/news/delete" method="POST">
                     <input type = "hidden" name="id" value="{{ $n->id }}">
 <!--
                         <a href="show/{{ $n->id }}" " title="show">
                             <i class="fas fa-eye text-success  fa-lg"></i>
                         </a>
 -->
-                        <a href="edit/{{ $n->id }}" title="edit">
+                        <a href="/news/edit/{{ $n->id }}" title="edit">
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
                         @csrf
@@ -54,6 +49,12 @@
                         </button>
                     </form>
                 </td>
+            <td>{{ $n->id }} </td>
+            <td>{{ $n->title }} </td>
+            <td>{{ $n->category }} </td>
+            <td>{{ $n->link }} </td>
+            <td>{{ $n->hashtag }} </td>
+            <td>{{ $n->media }} </td>
             </tr>
         @endforeach
     </table>
