@@ -47,7 +47,7 @@ class NewsController extends Controller
             //return view('News.show', ['news' => $news]);
             $news = News::orderBy('id','desc')->take(100)->get();
             return view('News.index',['news' => $news]);
-    
+
         }
 
     /**
@@ -94,7 +94,7 @@ class NewsController extends Controller
             'media' => $request->media]);
             //return view('News.show', ['news' => $news]);
             $news = News::orderBy('id','desc')->take(100)->get();
-            return view('News.index',['news' => $news]);    
+            return view('News.index',['news' => $news]);
         }
 
     /**
