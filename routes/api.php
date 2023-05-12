@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('news/date/{date}','App\Http\Controllers\ApiNewsController@date');
+Route::get('news/month/{month}','App\Http\Controllers\ApiNewsController@month');
+Route::get('news/search/{hashtag}','App\Http\Controllers\ApiNewsController@search');
