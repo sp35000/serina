@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "../../myCloud/mirror/ops"
+		},
+		{
+			"path": "../../myCloud/mirror/dev"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "work4love.net",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "Serina",
+				"database": "ckropae6_serina",
+				"username": "ckropae6_wp",
+				"askForPassword": true
+			}
+		]
+	}
+}

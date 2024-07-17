@@ -89,6 +89,7 @@ class NewsController extends Controller
         $news->update([
             'title' => $request->title,
             'category' => $request->category,
+            'initial_date' => $request->initial_date,
             'link' => $request->link,
             'hashtag' => $request->hashtag,
             'media' => $request->media]);

@@ -25,6 +25,7 @@
             <th>operation</th>
             <th>id</th>
             <th>Title</th>
+            <th>Initial Date</th>
             <th>Category</th>
             <th>Link</th>
             <th>Hashtag</th>
@@ -51,6 +52,7 @@
                 </td>
             <td>{{ $n->id }} </td>
             <td>{{ $n->title }} </td>
+            <td>{{ $n->initial_date }} </td>
             <td>{{ $n->category }} </td>
             <td>{{ $n->link }} </td>
             <td>{{ $n->hashtag }} </td>

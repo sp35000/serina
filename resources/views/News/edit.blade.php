@@ -40,6 +40,12 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Initial Date:</strong>
+                    <input type="text" name="initial_date" class="form-control" placeholder="initial_date" value="{{ $news->initial_date }}">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Link:</strong>
                     <input type="text" name="link" class="form-control" placeholder="link" value="{{ $news->link }}">
                 </div>
