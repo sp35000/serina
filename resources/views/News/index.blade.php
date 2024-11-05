@@ -34,14 +34,14 @@
         @foreach ($news as $n) 
             <tr>
             <td>
-                    <form action="/news/delete" method="POST">
+                    <form action="news/delete" method="POST">
                     <input type = "hidden" name="id" value="{{ $n->id }}">
 <!--
                         <a href="show/{{ $n->id }}" " title="show">
                             <i class="fas fa-eye text-success  fa-lg"></i>
                         </a>
 -->
-                        <a href="/news/edit/{{ $n->id }}" title="edit">
+                        <a href="news/edit/{{ $n->id }}" title="edit">
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
                         @csrf
