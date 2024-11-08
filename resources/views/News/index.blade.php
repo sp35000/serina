@@ -8,7 +8,7 @@
                 <h2>Serina CRUD</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="/news/create" title="Add News"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="/serina/public/news/create" title="Add News"> <i class="fas fa-plus-circle"></i>
                     </a>
             </div>
         </div>
@@ -34,14 +34,14 @@
         @foreach ($news as $n) 
             <tr>
             <td>
-                    <form action="news/delete" method="POST">
+                    <form action="/serina/public/news/delete" method="POST">
                     <input type = "hidden" name="id" value="{{ $n->id }}">
 <!--
                         <a href="show/{{ $n->id }}" " title="show">
                             <i class="fas fa-eye text-success  fa-lg"></i>
                         </a>
 -->
-                        <a href="news/edit/{{ $n->id }}" title="edit">
+                        <a href="/serina/public/news/edit/{{ $n->id }}" title="edit">
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
                         @csrf
@@ -60,6 +60,5 @@
             </tr>
         @endforeach
     </table>
-
-
+    <p>{!! $news->links() !!}</p>
 @endsection

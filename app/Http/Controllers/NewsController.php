@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('id','desc')->take(100)->get();
+        $news = News::orderBy('id','desc')->paginate(100);
         return view('News.index',['news' => $news]);
     }
 
@@ -45,7 +45,7 @@ class NewsController extends Controller
             'hashtag' => $request->hashtag,
             'media' => $request->media]);
             //return view('News.show', ['news' => $news]);
-            $news = News::orderBy('id','desc')->take(100)->get();
+            $news = News::orderBy('id','desc')->paginate(100);
             return view('News.index',['news' => $news]);
 
         }
@@ -60,7 +60,7 @@ class NewsController extends Controller
     {
         //$news = News::findOrFail($id);
         //return view('News.show', ['news' => $news]);
-        $news = News::orderBy('id','desc')->take(100)->get();
+        $news = News::orderBy('id','desc')->paginate(100);
         return view('News.index',['news' => $news]);
     }
 
@@ -94,7 +94,7 @@ class NewsController extends Controller
             'hashtag' => $request->hashtag,
             'media' => $request->media]);
             //return view('News.show', ['news' => $news]);
-            $news = News::orderBy('id','desc')->take(100)->get();
+            $news = News::orderBy('id','desc')->paginate(100);
             return view('News.index',['news' => $news]);
         }
 
@@ -109,7 +109,7 @@ class NewsController extends Controller
         //dd($request->all());
         $news = News::findOrFail($request->id);
         $news->delete();
-        $news = News::orderBy('id','desc')->take(100)->get();
+        $news = News::orderBy('id','desc')->paginate(100);
         return view('News.index',['news' => $news]);
     }
 }
