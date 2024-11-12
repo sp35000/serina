@@ -22,6 +22,17 @@ class ApiNewsController extends Controller
       return json_encode($news);
     }
 
+   /**
+   * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function category($category)
+    {
+      $news = News::where('category', '=', $category)->get();
+      return json_encode($news);
+    }
+
     /**
      * Display the specified resource.
        *

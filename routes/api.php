@@ -21,3 +21,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('news/date/{date}','App\Http\Controllers\ApiNewsController@date');
 Route::get('news/month/{month}','App\Http\Controllers\ApiNewsController@month');
 Route::get('news/search/{hashtag}','App\Http\Controllers\ApiNewsController@search');
+Route::get('news/category/{category}','App\Http\Controllers\ApiNewsController@category');
