@@ -18,6 +18,7 @@ class ApiNewsController extends Controller
       $news = News::where('title', 'LIKE', '%' . $hashtag . '%')
                   ->orWhere('link', 'LIKE', '%' . $hashtag . '%')
                   ->orWhere('hashtag', 'LIKE', '%' . $hashtag . '%')
+                  ->orderBy('initial_date','desc')
                   ->get();
       return json_encode($news);
     }
@@ -29,7 +30,7 @@ class ApiNewsController extends Controller
      */
     public function category($category)
     {
-      $news = News::where('category', '=', $category)->get();
+      $news = News::where('category', '=', $category)->orderBy('initial_date','desc')->take(200)->get();
       return json_encode($news);
     }
 
