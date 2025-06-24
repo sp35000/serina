@@ -15,11 +15,15 @@ class ApiNewsController extends Controller
      */
     public function search($hashtag)
     {
-      $news = News::where('title', 'LIKE', '%' . $hashtag . '%')
-                  ->orWhere('link', 'LIKE', '%' . $hashtag . '%')
-                  ->orWhere('hashtag', 'LIKE', '%' . $hashtag . '%')
-                  ->orderBy('initial_date','desc')
-                  ->get();
+      $news = News::where('in_logical_deletion','=',0)
+            ->where(function ($query) use ($hashtag) {
+                      $query->where('title', 'LIKE', '%' . $hashtag . '%')
+                      ->orWhere('link', 'LIKE', '%' . $hashtag . '%')
+                      ->orWhere('hashtag', 'LIKE', '%' . $hashtag . '%');
+            })
+            ->orderBy('initial_date','desc')
+            ->get();
+
       return json_encode($news);
     }
 
@@ -30,7 +34,7 @@ class ApiNewsController extends Controller
      */
     public function category($category)
     {
-      $news = News::where('category', '=', $category)->orderBy('initial_date','desc')->take(200)->get();
+      $news = News::where('category', '=', $category)->where('in_logical_deletion','=',0)->orderBy('initial_date','desc')->take(200)->get();
       return json_encode($news);
     }
 
@@ -41,7 +45,7 @@ class ApiNewsController extends Controller
        */
       public function date($date)
       {
-        $news = News::where('initial_date', '=', $date)->get();
+        $news = News::where('initial_date', '=', $date)->where('in_logical_deletion','=',0)->get();
         return json_encode($news);
       }
 
@@ -52,7 +56,7 @@ class ApiNewsController extends Controller
        */
       public function month($month)
       {
-        $news = News::where('initial_date', 'LIKE', '%' . $month . '%')->get();
+        $news = News::where('initial_date', 'LIKE', '%' . $month . '%')->where('in_logical_deletion','=',0)->get();
         return json_encode($news);
       }
 
@@ -66,7 +70,7 @@ class ApiNewsController extends Controller
     {
         //$news = News::findOrFail($id);
         //return view('News.show', ['news' => $news]);
-        $news = News::orderBy('id','desc')->take(100)->get();
+        $news = News::orderBy('id','desc')->where('in_logical_deletion','=',0)->take(100)->get();
         return json_encode($news);
     }
 }

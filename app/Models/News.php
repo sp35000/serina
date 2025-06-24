@@ -10,5 +10,5 @@ class News extends Model
     use HasFactory;
     protected $table = 'news';
     public $timestamps = true;
-    protected $fillable = ['title','category','initial_date','link','hashtag','media'];
+    protected $fillable = ['title','category','initial_date','link','hashtag','media','in_logical_delection'];
 }
