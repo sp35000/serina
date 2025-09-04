@@ -45,7 +45,7 @@ class ApiNewsController extends Controller
        */
       public function date($date)
       {
-        $news = News::where('initial_date', '=', $date)->where('in_logical_deletion','=',0)->get();
+        $news = News::where('initial_date', '=', $date)->where('in_logical_deletion','=',0)->orderBy('id','desc')->get();
         return json_encode($news);
       }
 
